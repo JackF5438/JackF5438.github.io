@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutorat avec Jack — Accueil</title>
+  <title>Tutorat avec Jack</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
 
   <!-- NAVBAR -->
-  <nav>
+  <nav id="navbar">
     <div class="nav-inner">
-      <span class="nav-logo">✏️ Tutorat — Jack</span>
+      <span class="nav-logo">✏️ Jack · Tuteur</span>
       <div class="nav-links">
         <a href="index.html" class="active">Accueil</a>
         <a href="parcours.html">Mon parcours</a>
@@ -22,150 +22,175 @@
 
   <!-- HERO -->
   <section class="hero">
+    <canvas id="bg-canvas"></canvas>
     <div class="hero-inner">
-      <div class="hero-badge">👋 Salut ! Bienvenue sur mon site de tutorat</div>
-      <h1>Prêt pour ta séance ?<br /><span>T'es à la bonne place.</span></h1>
-      <p>Tout ce dont tu as besoin pour rejoindre la séance et bien te préparer est ici. C'est simple, je te guide étape par étape.</p>
+      <div class="hero-badge reveal">👋 Bienvenue — t'as une séance qui s'en vient ?</div>
+      <h1 class="reveal">Tout ce qu'il<br/>te faut,<br/><span class="gradient-text">juste ici.</span></h1>
+      <p class="reveal">Lien Zoom, consignes, FAQ — en un seul endroit. Simple et rapide.</p>
+      <a href="#zoom" class="btn-hero reveal">Rejoindre la séance ↓</a>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ZOOM SECTION -->
+  <!-- ZOOM -->
   <section class="section" id="zoom">
     <div class="container">
-      <div class="zoom-card">
-        <div class="zoom-icon">🎥</div>
-        <h2>Rejoindre la séance Zoom</h2>
-        <p>Clique sur le bouton ci-dessous à l'heure de ta séance. Pas besoin de compte Zoom.</p>
-        <a href="https://uqam.zoom.us/j/3399359922" target="_blank" class="btn-zoom">Rejoindre le Zoom →</a>
-        <div class="zoom-id">
-          <span>ID de réunion :</span>
-          <code id="zoom-id-text">339 935 9922</code>
-          <button class="copy-btn" onclick="copyZoomId()">📋 Copier</button>
-          <span class="copy-confirm" id="copy-confirm">✅ Copié !</span>
+      <div class="zoom-card reveal">
+        <div class="zoom-glow"></div>
+        <div class="zoom-top">
+          <div class="zoom-pulse">
+            <span class="zoom-dot"></span>
+            <span class="zoom-label">Séance en ligne</span>
+          </div>
+          <h2>Rejoins le Zoom</h2>
+          <p>Clique ci-dessous à l'heure de ta séance. Aucun compte requis.</p>
+        </div>
+        <a href="https://uqam.zoom.us/j/3399359922" target="_blank" class="btn-zoom">
+          <span class="btn-zoom-icon">🎥</span>
+          Rejoindre maintenant
+          <span class="btn-zoom-arrow">→</span>
+        </a>
+        <div class="zoom-id-row">
+          <span class="zoom-id-label">ID de réunion</span>
+          <code>339 935 9922</code>
+          <button class="copy-btn" onclick="copyZoomId()">
+            <span id="copy-text">Copier</span>
+          </button>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CONSIGNES -->
-  <section class="section section-alt" id="consignes">
+  <section class="section section-dark" id="consignes">
     <div class="container">
-      <h2 class="section-title">📋 Consignes avant la séance</h2>
-      <p class="section-sub">Quelques petites choses pour que la séance soit la plus utile possible pour toi :</p>
-
-      <div class="steps">
+      <div class="section-header reveal">
+        <div class="tag">📋 Avant de rejoindre</div>
+        <h2>Les consignes</h2>
+        <p>Quatre petites choses pour une séance vraiment utile :</p>
+      </div>
+      <div class="steps reveal">
         <div class="step">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h3>Envoie-moi la matière en avance</h3>
-            <p>Le plus tôt c'est le mieux — j'ai besoin de me préparer pour que la séance soit vraiment efficace. Un résumé de ce que tu veux revoir, les chapitres concernés, tes notes de cours ou tes exercices.</p>
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <h3>Envoie la matière en avance</h3>
+            <p>Un résumé de ce que tu veux revoir, les chapitres, tes exercices — j'ai besoin de me préparer. Le plus tôt c'est le mieux.</p>
           </div>
         </div>
         <div class="step">
-          <div class="step-num">2</div>
-          <div class="step-content">
+          <div class="step-num">02</div>
+          <div class="step-body">
             <h3>Prépare tes questions</h3>
-            <p>Les concepts flous, les exercices qui bloquent, les notions que le prof explique trop vite — note tout avant de venir. Plus t'es précis, plus on va loin ensemble.</p>
+            <p>Les concepts flous, les exercices bloquants, ce que le prof explique trop vite — note tout. Plus t'es précis, plus on va loin.</p>
           </div>
         </div>
         <div class="step">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h3>Rejoins le Zoom à l'heure</h3>
-            <p>Sois là à l'heure prévue. On a une heure ensemble — autant en profiter au max dès le début. Si t'as un problème technique, écris-moi avant.</p>
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <h3>Rejoins à l'heure</h3>
+            <p>On a une heure ensemble — autant en profiter dès le début. Problème technique ? Écris-moi avant.</p>
           </div>
         </div>
         <div class="step">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h3>Tu veux plutôt en personne ?</h3>
-            <p>Aucun problème — les séances en ligne sont échangeables pour du présentiel. Écris-moi à <a href="mailto:fan.jiaqing@courrier.uqam.ca">fan.jiaqing@courrier.uqam.ca</a> et on arrange ça.</p>
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <h3>Tu veux du présentiel ?</h3>
+            <p>Toutes les séances en ligne sont échangeables. Écris-moi à <a href="mailto:fan.jiaqing@courrier.uqam.ca">fan.jiaqing@courrier.uqam.ca</a></p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CE QUE TU VAS VIVRE -->
+  <!-- PENDANT LA SÉANCE -->
   <section class="section" id="seance">
     <div class="container">
-      <h2 class="section-title">💡 Pendant la séance</h2>
-      <p class="section-sub">Voilà comment ça se passe :</p>
-
-      <div class="cards-grid">
-        <div class="info-card">
+      <div class="section-header reveal">
+        <div class="tag">💡 Pendant la séance</div>
+        <h2>Ce que t'as pour toi</h2>
+      </div>
+      <div class="cards-grid reveal">
+        <div class="card">
+          <div class="card-glow card-glow-blue"></div>
           <div class="card-icon">🗣️</div>
-          <h3>Des explications en vrai français</h3>
-          <p>Fini les définitions de manuel que personne comprend. Je traduis les concepts économiques et mathématiques en langage de tous les jours.</p>
+          <h3>Explications en vrai français</h3>
+          <p>Fini les définitions de manuel. Je traduis l'éco et les maths en langage de tous les jours.</p>
         </div>
-        <div class="info-card">
+        <div class="card">
+          <div class="card-glow card-glow-purple"></div>
           <div class="card-icon">🧩</div>
-          <h3>Des exemples concrets</h3>
-          <p>Chaque concept s'explique mieux avec un exemple de la vraie vie. C'est ma façon préférée d'enseigner.</p>
+          <h3>Exemples concrets</h3>
+          <p>Chaque concept s'explique avec un exemple de la vraie vie. C'est ma façon préférée d'enseigner.</p>
         </div>
-        <div class="info-card">
+        <div class="card">
+          <div class="card-glow card-glow-green"></div>
           <div class="card-icon">📝</div>
-          <h3>Des exercices supplémentaires</h3>
-          <p>Si on a le temps, on pratique avec des exercices ciblés sur ce que t'as du mal à faire.</p>
+          <h3>Exercices ciblés</h3>
+          <p>On pratique sur ce que t'as du mal à faire — pas sur ce que tu sais déjà.</p>
         </div>
-        <div class="info-card">
+        <div class="card">
+          <div class="card-glow card-glow-orange"></div>
           <div class="card-icon">⏱️</div>
           <h3>On finit quand t'as compris</h3>
-          <p>Je donne souvent du temps supplémentaire gratuit. L'objectif c'est que tu repars en ayant vraiment compris — pas juste vu la matière.</p>
+          <p>Je donne souvent du temps gratuit en plus. Tu repars quand tu comprends vraiment.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="section section-alt" id="faq">
+  <section class="section section-dark" id="faq">
     <div class="container">
-      <h2 class="section-title">❓ Questions fréquentes</h2>
-
-      <div class="faq-list">
+      <div class="section-header reveal">
+        <div class="tag">❓ FAQ</div>
+        <h2>Questions fréquentes</h2>
+      </div>
+      <div class="faq-list reveal">
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Je n'ai pas encore envoyé la matière, est-ce que je peux quand même venir ?
-            <span class="faq-arrow">▼</span>
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Je n'ai pas encore envoyé la matière — je peux quand même venir ?
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
-            <p>Oui, mais la séance sera moins efficace. Envoie-moi au moins un résumé rapide par email avant qu'on commence — même 30 minutes avant c'est mieux que rien !</p>
+          <div class="faq-a">
+            <p>Oui, mais la séance sera moins efficace. Envoie-moi au moins un résumé rapide avant — même 30 minutes avant c'est mieux que rien.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
+          <button class="faq-q" onclick="toggleFaq(this)">
             Combien de temps dure une séance ?
-            <span class="faq-arrow">▼</span>
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
-            <p>Une heure de base. Mais si on n'a pas fini et que t'as encore des questions, je reste souvent plus longtemps sans frais supplémentaires.</p>
+          <div class="faq-a">
+            <p>Une heure de base. Si on n'a pas fini et t'as encore des questions, je reste souvent plus longtemps sans frais supplémentaires.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Est-ce que je peux passer en présentiel ?
-            <span class="faq-arrow">▼</span>
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Je peux passer en présentiel ?
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
-            <p>Absolument. Écris-moi à <a href="mailto:fan.jiaqing@courrier.uqam.ca">fan.jiaqing@courrier.uqam.ca</a> et on organise ça ensemble.</p>
+          <div class="faq-a">
+            <p>Absolument. Écris-moi à <a href="mailto:fan.jiaqing@courrier.uqam.ca">fan.jiaqing@courrier.uqam.ca</a> et on organise ça.</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
-            Quels cours est-ce que tu couvres ?
-            <span class="faq-arrow">▼</span>
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Quels cours tu couvres ?
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
-            <p>Microéconomie (ECO1013, ECO1023, ECO2013), Macroéconomie (ECO1301, ECO2401, ECO3013), Statistiques & Économétrie (ECO2273), et Finance (FIN3500).</p>
+          <div class="faq-a">
+            <p>Microéconomie (ECO1013, ECO1023, ECO2013), Macroéconomie (ECO1301, ECO2401, ECO3013), Statistiques & Économétrie (ECO2273), Finance (FIN3500).</p>
           </div>
         </div>
         <div class="faq-item">
-          <button class="faq-question" onclick="toggleFaq(this)">
+          <button class="faq-q" onclick="toggleFaq(this)">
             Comment te contacter ?
-            <span class="faq-arrow">▼</span>
+            <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
-            <p>Par email : <a href="mailto:fan.jiaqing@courrier.uqam.ca">fan.jiaqing@courrier.uqam.ca</a>. Je réponds généralement dans la journée.</p>
+          <div class="faq-a">
+            <p>Par email : <a href="mailto:fan.jiaqing@courrier.uqam.ca">fan.jiaqing@courrier.uqam.ca</a> — je réponds dans la journée.</p>
           </div>
         </div>
       </div>
@@ -174,16 +199,75 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>Jack Fan · Tuteur en économie · UQAM · <a href="mailto:fan.jiaqing@courrier.uqam.ca">fan.jiaqing@courrier.uqam.ca</a></p>
+    <div class="footer-inner">
+      <span class="footer-logo">✏️ Jack · Tuteur en économie · UQAM</span>
+      <a href="mailto:fan.jiaqing@courrier.uqam.ca" class="footer-email">fan.jiaqing@courrier.uqam.ca</a>
+      <a href="parcours.html" class="footer-link">Mon parcours →</a>
+    </div>
   </footer>
 
   <script>
-    function copyZoomId() {
-      navigator.clipboard.writeText('3399359922');
-      document.getElementById('copy-confirm').style.opacity = '1';
-      setTimeout(() => { document.getElementById('copy-confirm').style.opacity = '0'; }, 2000);
+    // ─── Canvas animated background ───
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, blobs;
+
+    function initCanvas() {
+      W = canvas.width = canvas.offsetWidth;
+      H = canvas.height = canvas.offsetHeight;
+      blobs = Array.from({length: 6}, (_, i) => ({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: 200 + Math.random() * 200,
+        dx: (Math.random() - 0.5) * 0.4,
+        dy: (Math.random() - 0.5) * 0.4,
+        hue: [220, 250, 200, 280, 210, 260][i],
+      }));
     }
 
+    function drawCanvas() {
+      ctx.clearRect(0, 0, W, H);
+      blobs.forEach(b => {
+        b.x += b.dx; b.y += b.dy;
+        if (b.x < -b.r) b.x = W + b.r;
+        if (b.x > W + b.r) b.x = -b.r;
+        if (b.y < -b.r) b.y = H + b.r;
+        if (b.y > H + b.r) b.y = -b.r;
+        const g = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+        g.addColorStop(0, `hsla(${b.hue}, 80%, 65%, 0.18)`);
+        g.addColorStop(1, `hsla(${b.hue}, 80%, 65%, 0)`);
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      requestAnimationFrame(drawCanvas);
+    }
+
+    initCanvas();
+    drawCanvas();
+    window.addEventListener('resize', initCanvas);
+
+    // ─── Navbar scroll ───
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // ─── Reveal on scroll ───
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ─── Copy Zoom ID ───
+    function copyZoomId() {
+      navigator.clipboard.writeText('3399359922');
+      const btn = document.getElementById('copy-text');
+      btn.textContent = '✅ Copié';
+      setTimeout(() => btn.textContent = 'Copier', 2000);
+    }
+
+    // ─── FAQ ───
     function toggleFaq(btn) {
       const item = btn.parentElement;
       const isOpen = item.classList.contains('open');
@@ -191,6 +275,5 @@
       if (!isOpen) item.classList.add('open');
     }
   </script>
-
 </body>
 </html>
